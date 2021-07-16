@@ -21,6 +21,20 @@ export class TasksService {
         });
     }
 
+    updateTaskById(id: string, patch: string, param){
+        return this.tasks.find((task, index) => {
+            if(task.id === id) {
+                if( patch == 'status'){
+                    task.status = TaskStatus[param.status];
+                }else if( patch == 'title' ){
+                    task.title = param.title;
+                }else if( patch == 'description' ){
+                    task.description = param.description;
+                }
+            }
+        });
+    }
+
     createTask(CreateTaskDto: CreateTaskDto): Task {
         const { title, description } = CreateTaskDto;
         const task: Task = {
