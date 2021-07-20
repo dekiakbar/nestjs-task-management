@@ -13,6 +13,9 @@ export class TasksService {
         private taskRepository: TaskRepository,
     ) {}
 
+    getTasks(filterDto: GetTasksFilterDto){
+
+    }
     // private tasks : Task[] = [];
 
     // getAllTasks(): Task[] {
